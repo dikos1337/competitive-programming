@@ -1,8 +1,5 @@
-input_data = """1000417
-23,x,x,x,x,x,x,x,x,x,x,x,x,41,x,x,x,37,x,x,x,x,x,479,x,x,x,x,x,x,x,x,x,x,x,x,13,x,x,x,17,x,x,x,x,x,x,x,x,x,x,x,29,x,373,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,19""".split(
-    "\n"
-)
-
+with open("day13.txt", "r") as f:
+    input_data = f.read().split("\n")
 
 print(input_data)
 min_time = int(input_data[0])
@@ -16,7 +13,6 @@ d = []
 
 for bus in buses:
     for i in range(0, min_time * 2, bus):
-        # print(i, min_time)
         if i >= min_time:
             delta_time = i - min_time
             bus_num = bus

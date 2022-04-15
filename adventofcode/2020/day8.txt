@@ -1,4 +1,4 @@
-let input = `jmp +323
+jmp +323
 acc +0
 acc -1
 acc +18
@@ -633,62 +633,4 @@ acc +3
 acc +50
 jmp +1
 acc +49
-jmp +1` //.replace("jmp +233","nop +233")
-  .split("\n");
-
-function parseInstruction(instruction) {
-  let result = instruction.split(" ");
-  return {
-    operation: result[0],
-    value: parseInt(result[1]),
-    wasRun: false,
-  };
-}
-
-let instructions = input.map((el) => parseInstruction(el));
-let accumulator = 0;
-
-// console.log(instructions);
-
-
-
-let pointer = 0;
-let op = instructions[pointer];
-if (!op.wasRun) {
-  while (!op.wasRun) {
-    switch (op.operation) {
-      case "nop":
-        console.log("pointer=", pointer);
-        pointer += 1;
-        op.wasRun = true;
-        runnned_op_stack.push(op);
-        break;
-      case "jmp":
-        console.log(op, "jmp, pointer=", pointer);
-        pointer += op.value;
-        op.wasRun = true;
-        runnned_op_stack.push(op);
-        break;
-      case "acc":
-        console.log(op, "pointer=", pointer, "accumulator=", accumulator);
-        accumulator += op.value;
-        pointer += 1;
-        op.wasRun = true;
-        break;
-    }
-    // new instruction
-    op = instructions[pointer];
-  }
-} else {
-
-  runnned_op_stack = [];
-  pointer = 0;
-  op = instructions[pointer];
-
-}
-
-console.log("ANSWER accumulator=", accumulator);
-console.log(pointer, "pointer");
-console.log(op, "op");
-
-console.log(runnned_op_stack, "runnned_op_stack");
+jmp +1
