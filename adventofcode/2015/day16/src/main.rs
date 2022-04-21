@@ -86,11 +86,12 @@ fn main() {
     part1(&attrs, &sues, &my_sue);
     part2(&attrs, &sues, &my_sue);
 }
+
 fn part1(attrs: &[&str], sues: &[Sue], my_sue: &Sue) {
     let mut filtered_sues = sues.to_owned();
     for attr in attrs.iter() {
         filtered_sues = filtered_sues
-            .iter()
+            .into_iter()
             .filter(|sue| {
                 return match *attr {
                     "cats" => match sue.cats {
@@ -147,7 +148,6 @@ fn part1(attrs: &[&str], sues: &[Sue], my_sue: &Sue) {
                     _ => panic!("unknown attr"),
                 };
             })
-            .cloned()
             .collect::<Vec<Sue>>();
     }
     match filtered_sues.len() {
@@ -162,7 +162,7 @@ fn part2(attrs: &[&str], sues: &[Sue], my_sue: &Sue) {
     let mut filtered_sues = sues.to_owned();
     for attr in attrs.iter() {
         filtered_sues = filtered_sues
-            .iter()
+            .into_iter()
             .filter(|sue| {
                 return match *attr {
                     "cats" => match sue.cats {
@@ -219,7 +219,6 @@ fn part2(attrs: &[&str], sues: &[Sue], my_sue: &Sue) {
                     _ => panic!("unknown attr"),
                 };
             })
-            .cloned()
             .collect::<Vec<Sue>>();
     }
     match filtered_sues.len() {
