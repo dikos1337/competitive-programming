@@ -90,65 +90,60 @@ fn main() {
 fn part1(attrs: &[&str], sues: &[Sue], my_sue: &Sue) {
     let mut filtered_sues = sues.to_owned();
     for attr in attrs.iter() {
-        filtered_sues = filtered_sues
-            .into_iter()
-            .filter(|sue| {
-                return match *attr {
-                    "cats" => match sue.cats {
-                        999 => true,
-                        0 => true,
-                        _ => sue.cats == my_sue.cats,
-                    },
-                    "trees" => match sue.trees {
-                        999 => true,
-                        0 => true,
-                        _ => sue.trees == my_sue.trees,
-                    },
-                    "pomeranians" => match sue.pomeranians {
-                        999 => true,
-                        0 => true,
-                        _ => sue.pomeranians == my_sue.pomeranians,
-                    },
-                    "goldfish" => match sue.goldfish {
-                        999 => true,
-                        0 => true,
-                        _ => sue.goldfish == my_sue.goldfish,
-                    },
-                    "children" => match sue.children {
-                        999 => true,
-                        0 => true,
-                        _ => sue.children == my_sue.children,
-                    },
-                    "samoyeds" => match sue.samoyeds {
-                        999 => true,
-                        0 => true,
-                        _ => sue.samoyeds == my_sue.samoyeds,
-                    },
-                    "cars" => match sue.cars {
-                        999 => true,
-                        0 => true,
-                        _ => sue.cars == my_sue.cars,
-                    },
-                    "perfumes" => match sue.perfumes {
-                        999 => true,
-                        0 => true,
-                        _ => sue.perfumes == my_sue.perfumes,
-                    },
-                    "akitas" => match sue.akitas {
-                        999 => true,
-                        0 => true,
-                        _ => sue.akitas == my_sue.akitas,
-                    },
+        filtered_sues.retain(|sue| match *attr {
+            "cats" => match sue.cats {
+                999 => true,
+                0 => true,
+                _ => sue.cats == my_sue.cats,
+            },
+            "trees" => match sue.trees {
+                999 => true,
+                0 => true,
+                _ => sue.trees == my_sue.trees,
+            },
+            "pomeranians" => match sue.pomeranians {
+                999 => true,
+                0 => true,
+                _ => sue.pomeranians == my_sue.pomeranians,
+            },
+            "goldfish" => match sue.goldfish {
+                999 => true,
+                0 => true,
+                _ => sue.goldfish == my_sue.goldfish,
+            },
+            "children" => match sue.children {
+                999 => true,
+                0 => true,
+                _ => sue.children == my_sue.children,
+            },
+            "samoyeds" => match sue.samoyeds {
+                999 => true,
+                0 => true,
+                _ => sue.samoyeds == my_sue.samoyeds,
+            },
+            "cars" => match sue.cars {
+                999 => true,
+                0 => true,
+                _ => sue.cars == my_sue.cars,
+            },
+            "perfumes" => match sue.perfumes {
+                999 => true,
+                0 => true,
+                _ => sue.perfumes == my_sue.perfumes,
+            },
+            "akitas" => match sue.akitas {
+                999 => true,
+                0 => true,
+                _ => sue.akitas == my_sue.akitas,
+            },
 
-                    "vizslas" => match sue.vizslas {
-                        999 => true,
-                        0 => true,
-                        _ => sue.vizslas == my_sue.vizslas,
-                    },
-                    _ => panic!("unknown attr"),
-                };
-            })
-            .collect::<Vec<Sue>>();
+            "vizslas" => match sue.vizslas {
+                999 => true,
+                0 => true,
+                _ => sue.vizslas == my_sue.vizslas,
+            },
+            _ => panic!("unknown attr"),
+        });
     }
     match filtered_sues.len() {
         1 => {
@@ -161,65 +156,60 @@ fn part1(attrs: &[&str], sues: &[Sue], my_sue: &Sue) {
 fn part2(attrs: &[&str], sues: &[Sue], my_sue: &Sue) {
     let mut filtered_sues = sues.to_owned();
     for attr in attrs.iter() {
-        filtered_sues = filtered_sues
-            .into_iter()
-            .filter(|sue| {
-                return match *attr {
-                    "cats" => match sue.cats {
-                        999 => true,
-                        0 => true,
-                        _ => sue.cats > my_sue.cats,
-                    },
-                    "trees" => match sue.trees {
-                        999 => true,
-                        0 => true,
-                        _ => sue.trees > my_sue.trees,
-                    },
-                    "pomeranians" => match sue.pomeranians {
-                        999 => true,
-                        0 => true,
-                        _ => sue.pomeranians < my_sue.pomeranians,
-                    },
-                    "goldfish" => match sue.goldfish {
-                        999 => true,
-                        0 => true,
-                        _ => sue.goldfish < my_sue.goldfish,
-                    },
-                    "children" => match sue.children {
-                        999 => true,
-                        0 => true,
-                        _ => sue.children == my_sue.children,
-                    },
-                    "samoyeds" => match sue.samoyeds {
-                        999 => true,
-                        0 => true,
-                        _ => sue.samoyeds == my_sue.samoyeds,
-                    },
-                    "cars" => match sue.cars {
-                        999 => true,
-                        0 => true,
-                        _ => sue.cars == my_sue.cars,
-                    },
-                    "perfumes" => match sue.perfumes {
-                        999 => true,
-                        0 => true,
-                        _ => sue.perfumes == my_sue.perfumes,
-                    },
-                    "akitas" => match sue.akitas {
-                        999 => true,
-                        0 => true,
-                        _ => sue.akitas == my_sue.akitas,
-                    },
+        filtered_sues.retain(|sue| match *attr {
+            "cats" => match sue.cats {
+                999 => true,
+                0 => true,
+                _ => sue.cats > my_sue.cats,
+            },
+            "trees" => match sue.trees {
+                999 => true,
+                0 => true,
+                _ => sue.trees > my_sue.trees,
+            },
+            "pomeranians" => match sue.pomeranians {
+                999 => true,
+                0 => true,
+                _ => sue.pomeranians < my_sue.pomeranians,
+            },
+            "goldfish" => match sue.goldfish {
+                999 => true,
+                0 => true,
+                _ => sue.goldfish < my_sue.goldfish,
+            },
+            "children" => match sue.children {
+                999 => true,
+                0 => true,
+                _ => sue.children == my_sue.children,
+            },
+            "samoyeds" => match sue.samoyeds {
+                999 => true,
+                0 => true,
+                _ => sue.samoyeds == my_sue.samoyeds,
+            },
+            "cars" => match sue.cars {
+                999 => true,
+                0 => true,
+                _ => sue.cars == my_sue.cars,
+            },
+            "perfumes" => match sue.perfumes {
+                999 => true,
+                0 => true,
+                _ => sue.perfumes == my_sue.perfumes,
+            },
+            "akitas" => match sue.akitas {
+                999 => true,
+                0 => true,
+                _ => sue.akitas == my_sue.akitas,
+            },
 
-                    "vizslas" => match sue.vizslas {
-                        999 => true,
-                        0 => true,
-                        _ => sue.vizslas == my_sue.vizslas,
-                    },
-                    _ => panic!("unknown attr"),
-                };
-            })
-            .collect::<Vec<Sue>>();
+            "vizslas" => match sue.vizslas {
+                999 => true,
+                0 => true,
+                _ => sue.vizslas == my_sue.vizslas,
+            },
+            _ => panic!("unknown attr"),
+        });
     }
     match filtered_sues.len() {
         1 => {
